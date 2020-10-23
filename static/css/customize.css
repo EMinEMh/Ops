@@ -1,0 +1,71 @@
+.el-menu>h3 {
+      padding-left: 15px;
+}
+.el-header {
+      background-color: #B3C0D1;
+     color: #333;
+    line-height: 60px;
+}
+
+body {
+    color: #73879C;
+    background: #2A3F54;
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.471
+}
+
+.container {
+    width: 100%;
+    padding: 0
+}
+
+.left_col {
+    background: #2A3F54
+}
+
+.navbar {
+    margin-bottom: 0
+}
+
+.navbar-brand,
+.navbar-nav>li>a {
+    color: #fff !important
+}
+
+.site_title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 22px;
+    width: 100%;
+    color: #ECF0F1 !important;
+    margin-left: 0 !important;
+    line-height: 59px;
+    display: block;
+    height: 55px;
+    margin: 0;
+    padding-left: 10px
+}
+
+.nav_title {
+    width: 230px;
+    float: left;
+    background: #2A3F54;
+    border-radius: 0;
+    height: 57px
+}
+
+.main_container .top_nav {
+    display:block;
+    margin-left:70px;
+    z-index:2
+}
+
+
+
+
+.left_col{
+    background: #0b4b97;
+}
