@@ -9,7 +9,7 @@ class Index(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'base2.html', context={'user': request.user})
+        return render(request, 'base3.html', context={'user': request.user})
 
 
 def login(request):

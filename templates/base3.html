@@ -10,10 +10,15 @@
 
     <!-- 引入组件库 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+{#    <link rel="stylesheet" href="{% static "css/index.css" %}">#}
     <link rel="stylesheet" href="{% static "css/customize.css" %}">
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+{#    <script src="{% static "js/element-ui.js" %}"></script>#}
+{#    <script src="{% static "js/vue.js" %}"></script>#}
+
 </head>
 
 <body>
@@ -111,6 +116,52 @@
         </el-header>
 
     <el-main>
+        {% block page-content %}
+            <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content bg-purple">
+                    <div class="icon">
+                        <i class="el-icon-s-marketing" style="height: 50px;width: 50px"></i>
+                    </div>
+                    <h2>0</h2>
+                    <h3>资产数</h3>
+                    <p>平台记录的资产数包括服务器网络设备</p>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple">
+                    <div class="icon">
+                        <i class="el-icon-s-comment" style="height: 50px;width: 50px"></i>
+                    </div>
+                    <h2>0</h2>
+                    <h3>工单数</h3>
+                    <p>包含SQL审核文件分发下载</p>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple">
+                    <div class="icon">
+                        <i class="el-icon-coin" style="height: 50px;width: 50px"></i>
+                    </div>
+                    <h2>0</h2>
+                    <h3>数据库</h3>
+                    <p>所有被管理的数据库</p>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple">
+                    <div class="icon">
+                        <i class="el-icon-s-data" style="height: 50px;width: 50px"></i>
+                    </div>
+                    <h2>0</h2>
+                    <h3>项目数</h3>
+                    <p>代码发布数</p>
+                </div></el-col>
+            </el-row>
+            <div class="order-panel">
+                <div class="order-title">
+                    <h2>工单统计
+                        <small>Orders summary</small>
+                    </h2>
+
+                </div>
+                <el-divider></el-divider>
+                <div id="box" style="width: 1170px;height: 280px;"></div>
+            </div>
+        {% endblock %}
         <el-table :data="tableData">
             <el-table-column prop="date" label="日期" width="140">
             </el-table-column>
@@ -140,6 +191,44 @@
   };
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
+
+    //初始化ehcharts实例
+    var myChart=echarts.init(document.getElementById("box"));
+    //指定图表的配置项和数据
+    var option={
+        //标题
+        //title:{
+        //  text:'工单统计'
+        //},
+        //工具箱
+        //保存图片
+        //toolbox:{
+        //    show:true,
+        //    feature:{
+        //        saveAsImage:{
+        //            show:true
+        //        }
+        //    }
+       // },
+        //图例-每一条数据的名字叫销量
+        legend:{
+            data:['销量']
+        },
+        //x轴
+        xAxis:{
+            data:["苹果","橘子","橙子","香蕉","菠萝","榴莲"]
+        },
+        //y轴没有显式设置，根据值自动生成y轴
+        yAxis:{},
+        //数据-data是最终要显示的数据
+        series:[{
+            name:'销量',
+            type:'line',
+            data:[40,20,35,60,55,10]
+        }]
+    };
+    //使用刚刚指定的配置项和数据项显示图表
+    myChart.setOption(option);
 </script>
 
 </body>
