@@ -10,14 +10,13 @@
 
     <!-- 引入组件库 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-{#    <link rel="stylesheet" href="{% static "css/index.css" %}">#}
     <link rel="stylesheet" href="{% static "css/customize.css" %}">
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-{#    <script src="{% static "js/element-ui.js" %}"></script>#}
-{#    <script src="{% static "js/vue.js" %}"></script>#}
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
 
 </head>
 
@@ -159,7 +158,7 @@
 
                 </div>
                 <el-divider></el-divider>
-                <div id="box" style="width: 1170px;height: 280px;"></div>
+                <div id="box" style="width: 70%;height: 280px;"></div>
             </div>
         {% endblock %}
         <el-table :data="tableData">
@@ -177,22 +176,22 @@
 </div>
 
 <script>
-  var Main = {
-    data() {
-      const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      };
-      return {
-        tableData: Array(20).fill(item)
-      }
-    }
-  };
-var Ctor = Vue.extend(Main)
-new Ctor().$mount('#app')
+    var Main = {
+        data() {
+            const item = {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            };
+            return {
+                tableData: Array(20).fill(item)
+            }
+        }
+    };
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
 
-    //初始化ehcharts实例
+    // 初始化echarts
     var myChart=echarts.init(document.getElementById("box"));
     //指定图表的配置项和数据
     var option={
@@ -230,6 +229,6 @@ new Ctor().$mount('#app')
     //使用刚刚指定的配置项和数据项显示图表
     myChart.setOption(option);
 </script>
-
+{#<script src="{% static "js/honor.js" %}"></script>#}
 </body>
 </html>
